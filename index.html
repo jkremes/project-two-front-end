@@ -12,6 +12,30 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <h1>The Family Laundry!</h1>
+
+      <h2 id="login">Sign-Up or Login!</h2>
+      <form id="sign-up-form">
+        <legend>Sign-Up!</legend>
+        <input required placeholder="Enter Email" name="credentials[email]" type="email"/>
+        <input required placeholder="Enter Password" name="credentials[password]" type="password"/>
+        <input required placeholder="Confirm Password" name="credentials[password_confirmation]" type="password"/>
+        <input type="submit"/>
+      </form>
+      <form id="sign-in-form">
+        <legend>Sign-In!</legend>
+        <input required placeholder="Enter email" name="credentials[email]" type="email"/>
+        <input required placeholder="Enter password" name="credentials[password]" type="password"/>
+        <input type="submit"/>
+      </form>
+      <form id="change-password-form" class="hidden">
+        <legend>Change Password!</legend>
+        <input required placeholder="Enter Old Password" name="passwords[old]" type="password"/>
+        <input required placeholder="Enter New Password" name="passwords[new]" type="password"/>
+        <input type="submit" />
+      </form>
+      <br>
+      <button id="sign-out-button" class="hidden">Sign Out!</button>
+      <br>
     </body>
 </html>
