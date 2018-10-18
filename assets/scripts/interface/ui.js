@@ -1,6 +1,6 @@
 const getLaundrySuccess = function (response) {
-  const totalLaundryItems = response
-  $('#user-display').html(`You have ${totalLaundryItems} laundry`)
+  const totalLaundryItems = response.articles.length
+  $('#user-display').html(`You have ${totalLaundryItems} laundry items!`)
   $('#user-display').css('color', 'green')
   $('#user-display')
 }
