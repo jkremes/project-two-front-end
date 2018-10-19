@@ -11,6 +11,14 @@ const getLaundry = function () {
   })
 }
 
+const removeArticle = (articleId) => {
+  return $.ajax({
+    url: config.apiUrl + '/articles/' + articleId,
+    method: 'DELETE'
+  })
+}
+
 module.exports = {
-  getLaundry
+  getLaundry,
+  removeArticle
 }

@@ -13,4 +13,7 @@ $(() => {
   $('#change-password-form').on('submit', authEvents.onChangePassword)
   $('#sign-out-button').on('click', authEvents.onSignOut)
   $('#get-laundry').on('click', interfaceEvents.onGetLaundry)
+  $('#user-display').on('click', interfaceEvents.onDeleteLaundry)
+  $('#create-laundry').on('click', interfaceEvents.onCreateLaundry)
+  $('#create-laundry-form').on('submit', authEvents.onCreateNewArticle)
 })
