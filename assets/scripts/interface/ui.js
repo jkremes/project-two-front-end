@@ -7,9 +7,9 @@ const getLaundrySuccess = (data) => {
   $('#user-display').html(showLaundryHtml)
 }
 
-const createNewArticle = function () {
-  $('#create-laundry-form').removeClass('hidden')
-}
+// const createNewArticle = function () {
+//   $('#create-laundry-form').removeClass('hidden')
+// }
 // const getLaundrySuccess = function (response) {
 //   const totalLaundryItems = response.articles.length
 //   $('#user-display').html(`You have ${totalLaundryItems} laundry items!`)
@@ -23,6 +23,6 @@ const getLaundryFailure = function () {
 }
 module.exports = {
   getLaundrySuccess,
-  getLaundryFailure,
-  createNewArticle
+  getLaundryFailure
+  // createNewArticle
 }

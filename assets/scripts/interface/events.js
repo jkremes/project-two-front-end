@@ -1,4 +1,4 @@
-// const getFormFields = require('../../../lib/get-form-fields.js')
+const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const ui = require('./ui.js')
 
@@ -9,11 +9,23 @@ const onGetLaundry = function (event) {
     .catch(ui.getLaundryFailure)
 }
 
-const onCreateLaundry = ui.createNewArticle
+const onCreateLaundry = function (event) {
+  event.preventDefault()
+  $('#create-laundry-form').removeClass('hidden')
+}
+
+const onCreateNewArticle = function (event) {
+  event.preventDefault()
+  const creationData = getFormFields(event.target)
+  api.createNewArticle(creationData)
+    .then(console.log)
+    .catch(console.log)
+}
 
 const onDeleteLaundry = (event) => {
   event.preventDefault()
   const articleId = $(event.target).closest('section').data('id')
+  console.log(articleId)
   if (confirm('Are you sure you no longer want this item?')) {
     api.removeArticle(articleId)
       .then(console.log)
@@ -24,5 +36,6 @@ const onDeleteLaundry = (event) => {
 module.exports = {
   onGetLaundry,
   onDeleteLaundry,
-  onCreateLaundry
+  onCreateLaundry,
+  onCreateNewArticle
 }

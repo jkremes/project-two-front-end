@@ -24,6 +24,7 @@ const signInSuccess = function (response) {
   $('#change-password-form').removeClass('hidden')
   $('#check-games-played').removeClass('hidden')
   $('#get-laundry').removeClass('hidden')
+  $('#create-laundry').removeClass('hidden')
 }
 
 const signInFailure = function () {

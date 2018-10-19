@@ -15,5 +15,5 @@ $(() => {
   $('#get-laundry').on('click', interfaceEvents.onGetLaundry)
   $('#user-display').on('click', interfaceEvents.onDeleteLaundry)
   $('#create-laundry').on('click', interfaceEvents.onCreateLaundry)
-  $('#create-laundry-form').on('submit', authEvents.onCreateNewArticle)
+  $('#create-laundry-form').on('submit', interfaceEvents.onCreateNewArticle)
 })
