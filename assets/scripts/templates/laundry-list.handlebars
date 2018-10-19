@@ -11,7 +11,17 @@
           <br>
           Color: {{article.color}}
         </p>
-        <button type="submit" class="btn btn-default">Remove</button>
+        <button type="submit" class="btn btn-primary delete-article">Remove</button>
+        <button type="submit" class="btn btn-primary update-article">Alter</button>
+
+        <form class="update-article-form hidden">
+          <legend>Update Laundry!</legend>
+          <input required placeholder="Article Description" name="article[description]" type="text"/>
+          <input required placeholder="Article Size" name="article[size]" type="text"/>
+          <input required placeholder="Article Color" name="article[color]" type="text"/>
+          <input type="submit" />
+        </form>
+
       </section>
   </div>
 

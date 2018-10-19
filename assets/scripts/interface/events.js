@@ -33,9 +33,31 @@ const onDeleteLaundry = (event) => {
       .catch(console.log)
   }
 }
+
+const onUpdateArticle = (event) => {
+  event.preventDefault()
+  $('.update-article-form').removeClass('hidden')
+  const articleId = $(event.target).closest('section').data('id')
+  console.log(articleId)
+  const updateArticle = function (event) {
+    event.preventDefault()
+    const creationData = getFormFields(event.target)
+    // console.log(creationData)
+    api.updateArticle(articleId, creationData)
+      .then(console.log)
+      .catch(console.log)
+  }
+  $('.update-article-form').on('submit', updateArticle)
+  // console.log(creationData)
+  // api.updateArticle(articleId, updatedArticle)
+  //   .then(console.log)
+  //   .catch(console.log)
+}
+
 module.exports = {
   onGetLaundry,
   onDeleteLaundry,
   onCreateLaundry,
-  onCreateNewArticle
+  onCreateNewArticle,
+  onUpdateArticle
 }

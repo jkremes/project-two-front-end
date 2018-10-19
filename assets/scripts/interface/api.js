@@ -32,8 +32,20 @@ const removeArticle = (articleId) => {
   })
 }
 
+const updateArticle = (articleId, userUpdatedArticle) => {
+  return $.ajax({
+    url: config.apiUrl + '/articles/' + articleId,
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    method: 'PATCH',
+    data: userUpdatedArticle
+  })
+}
+
 module.exports = {
   getLaundry,
   removeArticle,
-  createNewArticle
+  createNewArticle,
+  updateArticle
 }

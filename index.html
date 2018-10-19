@@ -13,7 +13,6 @@
     </head>
     <body>
       <h1>The Family Laundry!</h1>
-
       <h2 id="login">Sign-Up or Login!</h2>
 
       <form id="sign-up-form">
@@ -43,8 +42,7 @@
       <br>
       <button id="get-laundry" class="hidden">Show me the laundry!</button>
 
-      <button id="create-laundry" class="hidden">Create laundry!</button>
-
+      <!-- <button id="create-laundry" class="hidden">Create laundry!</button> -->
       <form id="create-laundry-form" class="hidden">
         <legend>Create Laundry!</legend>
         <input required placeholder="Article Description" name="article[description]" type="text"/>
@@ -52,7 +50,19 @@
         <input required placeholder="Article Color" name="article[color]" type="text"/>
         <input type="submit" />
       </form>
-      <div id="user-display">
+
+      <div id="user-display" class="user-display">
+
+        <!-- <form id="update-article-form" class="hidden">
+          <legend>Update Article!</legend>
+          <input required placeholder="Article Description" name="article[description]" type="text"/>
+          <input required placeholder="Article Size" name="article[size]" type="text"/>
+          <input required placeholder="Article Color" name="article[color]" type="text"/>
+          <input type="submit" />
+        </form> -->
+
       </div>
+
     </body>
+
 </html>

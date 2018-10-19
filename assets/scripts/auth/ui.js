@@ -20,9 +20,7 @@ const signInSuccess = function (response) {
   $('#sign-up-form').addClass('hidden')
   $('#sign-in-form').addClass('hidden')
   $('#sign-out-button').removeClass('hidden')
-  $('#create-new-game').removeClass('hidden')
   $('#change-password-form').removeClass('hidden')
-  $('#check-games-played').removeClass('hidden')
   $('#get-laundry').removeClass('hidden')
   $('#create-laundry').removeClass('hidden')
 }
