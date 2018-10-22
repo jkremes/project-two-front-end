@@ -12,59 +12,11 @@
           <td>{{article.size}}</td>
           <td>{{article.color}}</td>
           <td type="submit" class="btn btn-primary delete-article">Remove</td>
-          <!-- <td type="submit" class="btn btn-primary update-article">Alter</button>
-          <form class="update-article-form hidden">
-            <legend>Update Laundry!</legend>
-            <input required placeholder="Article Description" name="article[description]" type="text"/>
-            <input required placeholder="Article Size" name="article[size]" type="text"/>
-            <input required placeholder="Article Color" name="article[color]" type="text"/>
-            <input type="submit" />
-          </form> -->
-          <!-- Button trigger modal -->
-<!-- <td type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-  Alter!
-</td> -->
 
-<!-- Modal -->
-<!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Alter the Article!</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form method="patch" class="update-article-form">
-        <input required placeholder="Article Description" name="article[description]" type="text"/>
-        <input required placeholder="Article Size" name="article[size]" type="text"/>
-        <input required placeholder="Article Color" name="article[color]" type="text"/>
-      </form>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div> -->
 <td type="submit" class="btn btn-primary update-article" data-toggle="modal" data-target="#update-article-id-form">
     Alter
 </td>
-        </tr>
-        <!-- <button type="submit" class="btn btn-primary delete-article">Remove</button>
-        <button type="submit" class="btn btn-primary update-article">Alter</button> -->
-
-        <!-- <form class="update-article-form hidden">
-          <legend>Update Laundry!</legend>
-          <input required placeholder="Article Description" name="article[description]" type="text"/>
-          <input required placeholder="Article Size" name="article[size]" type="text"/>
-          <input required placeholder="Article Color" name="article[color]" type="text"/>
-          <input type="submit" />
-        </form> -->
-
-      <!-- </tbody> -->
-  <!-- </div> -->
-  <!-- Button trigger modal -->
+</tr>
 
   <!-- Modal -->
   <div class="modal fade" id="update-article-id-form" tabindex="-1" role="dialog"
@@ -113,18 +65,3 @@
   </div>
 
 {{/each}}
-
-<!-- {
-  "id": 4,
-  "description": "gloves",
-  "size": "m",
-  "color": "brown",
-  "editable": false,
-  "user": {
-    "id": 2,
-    "email": "abc@abc123",
-    "token": "10ea5fd62022fddbca38e559971c9310",
-    "password_digest": "$2a$10$5uX1z9HQutAEJ2eSvvNR0O9qvKPJaCSGVH5qq/O5xYfW0VQh2eq26",
-    "created_at": "2018-10-18T17:22:38.654Z",
-    "updated_at": "2018-10-18T17:22:49.672Z"
-  } -->

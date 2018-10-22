@@ -23,6 +23,7 @@ const signInSuccess = function (response) {
   $('#change-password-form').removeClass('hidden')
   $('#get-laundry').removeClass('hidden')
   $('#create-laundry').removeClass('hidden')
+  $('.table').removeClass('hidden')
 }
 
 const signInFailure = function () {
@@ -50,6 +51,10 @@ const signOutSuccess = function () {
   $('#sign-up-form').removeClass('hidden')
   $('#sign-in-form').removeClass('hidden')
   $('#change-password-form').addClass('hidden')
+  $('#create-laundry').addClass('hidden')
+  $('#create-laundry-form').addClass('hidden')
+  $('#sign-out-button').addClass('hidden')
+  $('.table').addClass('hidden')
 }
 
 const signOutFailure = function () {
