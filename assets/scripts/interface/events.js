@@ -24,7 +24,7 @@ const onCreateNewArticle = function (event) {
 
 const onDeleteLaundry = (event) => {
   event.preventDefault()
-  const articleId = $(event.target).closest('section').data('id')
+  const articleId = $(event.target).closest('tr').data('id')
   console.log(articleId)
   if (confirm('Are you sure you no longer want this item?')) {
     api.removeArticle(articleId)
@@ -36,13 +36,13 @@ const onDeleteLaundry = (event) => {
 
 const onUpdateArticle = (event) => {
   event.preventDefault()
-  $('.update-article-form').removeClass('hidden')
-  const articleId = $(event.target).closest('section').data('id')
+  // $('.update-article-form').removeClass('hidden')
+  const articleId = $(event.target).closest('tr').data('id')
   console.log(articleId)
   const updateArticle = function (event) {
     event.preventDefault()
     const creationData = getFormFields(event.target)
-    // console.log(creationData)
+    console.log(creationData)
     api.updateArticle(articleId, creationData)
       .then(console.log)
       .catch(console.log)

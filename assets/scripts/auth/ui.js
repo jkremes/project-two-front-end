@@ -35,7 +35,7 @@ const changePasswordSuccess = function () {
   $('#login').html('Change password success!')
   $('#login').css('color', 'green')
   $('#sign-up-form').trigger('reset')
-  $('#change-password-form').removeClass('hidden')
+  $('#change-password-form').trigger('reset')
 }
 
 const changePasswordFailure = function () {
@@ -49,6 +49,7 @@ const signOutSuccess = function () {
   $('#login').css('color', 'green')
   $('#sign-up-form').removeClass('hidden')
   $('#sign-in-form').removeClass('hidden')
+  $('#change-password-form').addClass('hidden')
 }
 
 const signOutFailure = function () {

@@ -42,7 +42,7 @@
       <br>
       <button id="get-laundry" class="hidden">Show me the laundry!</button>
 
-      <!-- <button id="create-laundry" class="hidden">Create laundry!</button> -->
+      <button id="create-laundry" class="hidden">Create laundry!</button>
       <form id="create-laundry-form" class="hidden">
         <legend>Create Laundry!</legend>
         <input required placeholder="Article Description" name="article[description]" type="text"/>
@@ -51,8 +51,25 @@
         <input type="submit" />
       </form>
 
-      <div id="user-display" class="user-display">
-
+      <!-- <div id="user-display" class="user-display table table-hover"> -->
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Description</th>
+              <th scope="col">Size</th>
+              <th scope="col">Color</th>
+            </tr>
+          </thead>
+          <tbody  id="article-table" class="article-table">
+            <!-- <tr>
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr> -->
+          </tbody>
+        <!-- </table> -->
         <!-- <form id="update-article-form" class="hidden">
           <legend>Update Article!</legend>
           <input required placeholder="Article Description" name="article[description]" type="text"/>
@@ -60,8 +77,8 @@
           <input required placeholder="Article Color" name="article[color]" type="text"/>
           <input type="submit" />
         </form> -->
-
-      </div>
+        </table>
+      <!-- </div> -->
 
     </body>
 

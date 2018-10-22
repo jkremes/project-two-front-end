@@ -1,10 +1,11 @@
 const showLaundry = require('../templates/laundry-list.handlebars')
 
 const getLaundrySuccess = (data) => {
-  console.log(data)
+  // console.log(data)
   const showLaundryHtml = showLaundry({ articles: data.articles })
-  console.log(showLaundryHtml)
-  $('#user-display').html(showLaundryHtml)
+  // console.log(showLaundryHtml)
+  // $('#user-display').html(showLaundryHtml)
+  $('#article-table').html(showLaundryHtml)
 }
 
 // const createNewArticle = function () {
