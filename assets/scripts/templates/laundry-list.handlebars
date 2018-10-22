@@ -13,7 +13,7 @@
           <td>{{article.color}}</td>
           <td type="submit" class="btn btn-primary delete-article">Remove</td>
 
-<td type="submit" class="btn btn-primary update-article" data-toggle="modal" data-target="#update-article-id-form">
+<td id="alterChanges" type="button" class="btn btn-primary update-article" data-toggle="modal" data-target="#update-article-id-form">
     Alter
 </td>
 </tr>
@@ -37,28 +37,35 @@
 
               <!-- Modal Body -->
               <div class="modal-body">
-                  <form role="form">
+                  <form class="update-article-form" role="form" method="patch">
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Description"/>
+                        <input required type="text" class="form-control" placeholder="Description"/>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" placeholder="Size"/>
+                        <input required type="text" class="form-control" placeholder="Size"/>
                     </div>
                     <div class="form-group">
-                          <input type="text" class="form-control" placeholder="Color"
+                          <input required type="text" class="form-control" placeholder="Color"
                     </div>
+                    <button type="button" class="btn btn-default"
+                            data-dismiss="modal">
+                                Close
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        Save changes
+                    </button>
                   </form>
               </div>
 
               <!-- Modal Footer -->
               <div class="modal-footer">
-                  <button type="button" class="btn btn-default"
+                  <!-- <button type="button" class="btn btn-default"
                           data-dismiss="modal">
                               Close
                   </button>
-                  <button type="button" class="btn btn-primary">
+                  <button type="submit" class="btn btn-primary">
                       Save changes
-                  </button>
+                  </button> -->
               </div>
           </div>
       </div>
