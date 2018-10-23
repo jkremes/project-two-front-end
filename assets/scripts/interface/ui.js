@@ -1,6 +1,5 @@
 const showLaundry = require('../templates/laundry-list.handlebars')
 const showArticleId = require('../templates/article-id.handlebars')
-// const showArticlesbyDescription = require('../templates/article-description.handlebars')
 
 const getLaundrySuccess = (data) => {
   const showLaundryHtml = showLaundry({ articles: data.articles })
@@ -67,43 +66,58 @@ const getArticleIdFailure = function () {
 }
 
 const getArticlesByDescriptionSuccess = (data) => {
-  console.log(data)
   const checkDescriptionArray = data.articles.filter(function (article) {
     return article.description === ($('#search-input').val())
   })
-  console.log(checkDescriptionArray)
   const showSearchedItems = showLaundry({ articles: checkDescriptionArray })
-  // const getArticleDescriptionSuccess = (checkDescription) => {
-  //   const showArticleDescriptionHtml = showArticlesbyDescription({ articles: checkDescriptionArray })
   $('.table').removeClass('hidden')
   $('#article-table').html(showSearchedItems)
-  // }
-  // getArticleDescriptionSuccess()
-  //   const checkDescription = (description) => {
-  //    return article.description > 50
-  // }
-  //
-  // [{id: 'mike', descripition: 100, size: 'dsl', color: 'slj'}, {name: 'michael', age: 10}].filter(checkAge) // [{named: 'mike', age: 100}]
-  // console.log(data.articles.filter(checkDescription))
-  // const descriptionArray = data.articles.filter(callback(description['sweater']))
-  // const checkDescription = (value) => {
-  //   return value === 'sweater'
-  // }
-  // const description = data.articles({description: 'sweater'})
-  // console.log(data.articles['description'])
-  // if (data.articles['description'] === 'sweater') {
-  //   console.log('your on to something')
-  // } else {
-  //   console.log('keep trying')
-  // }
-  // if (data.articles[description] === $('#search-input').val()) {
-  //   console.log('you got it')
-  // } else {
-  //   console.log('you dont got it')
-  // }
-  // const showArticlesByDesciptionHtml = showArticlesbyDescription({ articles: data.articles })
-  // $('.table').removeClass('hidden')
-  // $('#article-table').html(showArticlesByDesciptionHtml)
+  $('#search-input').val('')
+  $('#messages').fadeIn()
+  $('#messages').html('Your matched results are below, if blank, you do not own any of your search criteria!')
+  $('#messages').css('color', 'green')
+  $('#messages').fadeOut(5000)
+}
+
+const getArticlesByDescriptionFailure = function () {
+  $('#messages').html('Something went wrong, please try again')
+  $('#messages').css('color', 'red')
+}
+const getArticlesBySizeSuccess = (data) => {
+  const checkDescriptionArray = data.articles.filter(function (article) {
+    return article.size === ($('#search-input').val())
+  })
+  const showSearchedItems = showLaundry({ articles: checkDescriptionArray })
+  $('.table').removeClass('hidden')
+  $('#article-table').html(showSearchedItems)
+  $('#search-input').val('')
+  $('#messages').fadeIn()
+  $('#messages').html('Your matched results are below, if blank, you do not own any of your search criteria!')
+  $('#messages').css('color', 'green')
+  $('#messages').fadeOut(5000)
+}
+
+const getArticlesBySizeFailure = function () {
+  $('#messages').html('Something went wrong, please try again')
+  $('#messages').css('color', 'red')
+}
+const getArticlesByColorSuccess = (data) => {
+  const checkDescriptionArray = data.articles.filter(function (article) {
+    return article.color === ($('#search-input').val())
+  })
+  const showSearchedItems = showLaundry({ articles: checkDescriptionArray })
+  $('.table').removeClass('hidden')
+  $('#article-table').html(showSearchedItems)
+  $('#search-input').val('')
+  $('#messages').fadeIn()
+  $('#messages').html('Your matched results are below, if blank, you do not own any of your search criteria!')
+  $('#messages').css('color', 'green')
+  $('#messages').fadeOut(5000)
+}
+
+const getArticlesByColorFailure = function () {
+  $('#messages').html('Something went wrong, please try again')
+  $('#messages').css('color', 'red')
 }
 
 module.exports = {
@@ -117,5 +131,10 @@ module.exports = {
   updateArticleFailure,
   getArticleIdSuccess,
   getArticleIdFailure,
-  getArticlesByDescriptionSuccess
+  getArticlesByDescriptionSuccess,
+  getArticlesByDescriptionFailure,
+  getArticlesBySizeSuccess,
+  getArticlesBySizeFailure,
+  getArticlesByColorSuccess,
+  getArticlesByColorFailure
 }

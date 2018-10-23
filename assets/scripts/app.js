@@ -19,4 +19,6 @@ $(() => {
   $('#create-laundry-form').on('submit', interfaceEvents.onCreateNewArticle)
   $('#search-by-id').on('click', interfaceEvents.onShowById)
   $('#search-by-description').on('click', interfaceEvents.onShowByDescription)
+  $('#search-by-size').on('click', interfaceEvents.onShowBySize)
+  $('#search-by-color').on('click', interfaceEvents.onShowByColor)
 })

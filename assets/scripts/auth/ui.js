@@ -29,7 +29,7 @@ const signInSuccess = function (response) {
   $('#get-laundry').removeClass('hidden')
   $('#create-laundry').removeClass('hidden')
   $('#login').fadeOut(1500)
-  // $('.table').removeClass('hidden')
+  $('#search').removeClass('hidden')
 }
 
 const signInFailure = function () {
@@ -68,6 +68,8 @@ const signOutSuccess = function () {
   $('#create-laundry-form').addClass('hidden')
   $('#sign-out-button').addClass('hidden')
   $('.table').addClass('hidden')
+  $('#search').addClass('hidden')
+  $('#get-laundry').addClass('hidden')
   $('#login').fadeOut(1500)
 }
 

@@ -71,11 +71,21 @@ const onShowById = (event) => {
 }
 
 const onShowByDescription = (event) => {
-  // const searchValue = ($('#search-input').val())
-  // console.log(searchValue)
-  api.getArticlesByDescription()
+  api.getLaundry()
     .then(ui.getArticlesByDescriptionSuccess)
-    .catch(console.log)
+    .catch(ui.getArticlesByDescriptionFailure)
+}
+
+const onShowBySize = (event) => {
+  api.getLaundry()
+    .then(ui.getArticlesBySizeSuccess)
+    .catch(ui.getArticlesBySizeFailure)
+}
+
+const onShowByColor = (event) => {
+  api.getLaundry()
+    .then(ui.getArticlesByColorSuccess)
+    .catch(ui.getArticlesByColorFailure)
 }
 
 module.exports = {
@@ -85,5 +95,7 @@ module.exports = {
   onCreateNewArticle,
   onUpdateArticle,
   onShowById,
-  onShowByDescription
+  onShowByDescription,
+  onShowBySize,
+  onShowByColor
 }
