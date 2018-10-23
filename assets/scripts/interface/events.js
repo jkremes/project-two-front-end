@@ -18,8 +18,8 @@ const onCreateNewArticle = function (event) {
   event.preventDefault()
   const creationData = getFormFields(event.target)
   api.createNewArticle(creationData)
-    .then(console.log)
-    .catch(console.log)
+    .then(ui.createNewArticleSuccess)
+    .catch(ui.createNewArticleFailure)
 }
 
 const onDeleteLaundry = (event) => {
@@ -28,9 +28,9 @@ const onDeleteLaundry = (event) => {
   console.log(articleId)
   if (confirm('Are you sure you no longer want this item?')) {
     api.removeArticle(articleId)
-      .then(console.log)
+      .then(ui.removeArticleSuccess)
     // .then(() => onGetLaundry(event))
-      .catch(console.log)
+      .catch(ui.removeArticleFailure)
   }
 }
 
@@ -38,22 +38,22 @@ const onUpdateArticle = (event) => {
   event.preventDefault()
   // $('.update-article-form').removeClass('hidden')
   const articleId = $(event.target).closest('tr').data('id')
-  console.log(articleId)
+  // console.log(articleId)
   const updateArticle = function (event) {
-    console.log(event)
+    // console.log(event)
     // event.preventDefault()
 
     const description = $('#articleDescription').val().trim()
     const size = $('#articleSize').val().trim()
     const color = $('#articleColor').val().trim()
-    console.log(description)
-    console.log(size)
-    console.log(color)
-    const creationData = getFormFields(event.target)
-    console.log(creationData)
+    // console.log(description)
+    // console.log(size)
+    // console.log(color)
+    // const creationData = getFormFields(event.target)
+    // console.log(creationData)
     api.updateArticle(articleId, description, size, color)
-      .then(console.log)
-      .catch(console.log)
+      .then(ui.updateArticleSuccess)
+      .catch(ui.updateArticleFailure)
   }
   $('#form-submit').on('click', updateArticle)
   // $('#form-submit').on('submit', updateArticle)

@@ -1,29 +1,64 @@
 const showLaundry = require('../templates/laundry-list.handlebars')
 
 const getLaundrySuccess = (data) => {
-  // console.log(data)
   const showLaundryHtml = showLaundry({ articles: data.articles })
-  // console.log(showLaundryHtml)
-  // $('#user-display').html(showLaundryHtml)
+  $('.table').removeClass('hidden')
   $('#article-table').html(showLaundryHtml)
 }
-
-// const createNewArticle = function () {
-//   $('#create-laundry-form').removeClass('hidden')
-// }
-// const getLaundrySuccess = function (response) {
-//   const totalLaundryItems = response.articles.length
-//   $('#user-display').html(`You have ${totalLaundryItems} laundry items!`)
-//   $('#user-display').css('color', 'green')
-//   $('#user-display')
-// }
 
 const getLaundryFailure = function () {
   $('#user-display').html('Something went wrong, please try again')
   $('#user-display').css('color', 'red')
 }
+
+const createNewArticleSuccess = function () {
+  $('#messages').fadeIn()
+  $('#messages').html('You successfully added some clothing!')
+  $('#messages').css('color', 'green')
+  $('#messages').fadeOut(2000)
+}
+
+const createNewArticleFailure = function () {
+  $('#messages').fadeIn()
+  $('#messages').html('Something may have been wrong with the server, try again!')
+  $('#messages').css('color', 'red')
+  $('#messages').fadeOut(2000)
+}
+
+const removeArticleSuccess = function () {
+  $('#messages').fadeIn()
+  $('#messages').html('You successfully deleted that thang!')
+  $('#messages').css('color', 'green')
+  $('#messages').fadeOut(2000)
+}
+
+const removeArticleFailure = function () {
+  $('#messages').fadeIn()
+  $('#messages').html('You may not have permission to edit this or something may have been wrong with the server, try again!')
+  $('#messages').css('color', 'red')
+  $('#messages').fadeOut(2000)
+}
+const updateArticleSuccess = function () {
+  $('#messages').fadeIn()
+  $('#messages').html('You successfully added some clothing!')
+  $('#messages').css('color', 'green')
+  $('#messages').fadeOut(2000)
+}
+
+const updateArticleFailure = function () {
+  $('#messages').fadeIn()
+  $('#messages').html('Something may have been wrong with the server, try again!')
+  $('#messages').css('color', 'red')
+  $('#messages').fadeOut(2000)
+}
+
 module.exports = {
   getLaundrySuccess,
-  getLaundryFailure
-  // createNewArticle
+  getLaundryFailure,
+  createNewArticleSuccess,
+  createNewArticleFailure,
+  removeArticleSuccess,
+  removeArticleFailure,
+  updateArticleSuccess,
+  updateArticleFailure
 }
