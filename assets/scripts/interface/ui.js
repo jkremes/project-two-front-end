@@ -15,6 +15,7 @@ const createNewArticleSuccess = function () {
   $('#messages').fadeIn()
   $('#messages').html('You successfully added some clothing!')
   $('#messages').css('color', 'green')
+  $('#create-laundry-form').trigger('reset')
   $('#messages').fadeOut(2000)
 }
 
