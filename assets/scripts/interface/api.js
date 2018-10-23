@@ -59,10 +59,21 @@ const getArticleById = function (userEnteredId) {
   })
 }
 
+const getArticlesByDescription = function () {
+  return $.ajax({
+    url: config.apiUrl + '/articles',
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    method: 'GET'
+  })
+}
+
 module.exports = {
   getLaundry,
   removeArticle,
   createNewArticle,
   updateArticle,
-  getArticleById
+  getArticleById,
+  getArticlesByDescription
 }

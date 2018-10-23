@@ -18,4 +18,5 @@ $(() => {
   $('#create-laundry').on('click', interfaceEvents.onCreateLaundry)
   $('#create-laundry-form').on('submit', interfaceEvents.onCreateNewArticle)
   $('#search-by-id').on('click', interfaceEvents.onShowById)
+  $('#search-by-description').on('click', interfaceEvents.onShowByDescription)
 })

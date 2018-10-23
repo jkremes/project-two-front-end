@@ -70,11 +70,20 @@ const onShowById = (event) => {
     .catch(ui.getArticleIdFailure)
 }
 
+const onShowByDescription = (event) => {
+  // const searchValue = ($('#search-input').val())
+  // console.log(searchValue)
+  api.getArticlesByDescription()
+    .then(ui.getArticlesByDescriptionSuccess)
+    .catch(console.log)
+}
+
 module.exports = {
   onGetLaundry,
   onDeleteLaundry,
   onCreateLaundry,
   onCreateNewArticle,
   onUpdateArticle,
-  onShowById
+  onShowById,
+  onShowByDescription
 }

@@ -1,5 +1,6 @@
 const showLaundry = require('../templates/laundry-list.handlebars')
 const showArticleId = require('../templates/article-id.handlebars')
+// const showArticlesbyDescription = require('../templates/article-description.handlebars')
 
 const getLaundrySuccess = (data) => {
   const showLaundryHtml = showLaundry({ articles: data.articles })
@@ -65,6 +66,46 @@ const getArticleIdFailure = function () {
   $('#messages').css('color', 'red')
 }
 
+const getArticlesByDescriptionSuccess = (data) => {
+  console.log(data)
+  const checkDescriptionArray = data.articles.filter(function (article) {
+    return article.description === ($('#search-input').val())
+  })
+  console.log(checkDescriptionArray)
+  const showSearchedItems = showLaundry({ articles: checkDescriptionArray })
+  // const getArticleDescriptionSuccess = (checkDescription) => {
+  //   const showArticleDescriptionHtml = showArticlesbyDescription({ articles: checkDescriptionArray })
+  $('.table').removeClass('hidden')
+  $('#article-table').html(showSearchedItems)
+  // }
+  // getArticleDescriptionSuccess()
+  //   const checkDescription = (description) => {
+  //    return article.description > 50
+  // }
+  //
+  // [{id: 'mike', descripition: 100, size: 'dsl', color: 'slj'}, {name: 'michael', age: 10}].filter(checkAge) // [{named: 'mike', age: 100}]
+  // console.log(data.articles.filter(checkDescription))
+  // const descriptionArray = data.articles.filter(callback(description['sweater']))
+  // const checkDescription = (value) => {
+  //   return value === 'sweater'
+  // }
+  // const description = data.articles({description: 'sweater'})
+  // console.log(data.articles['description'])
+  // if (data.articles['description'] === 'sweater') {
+  //   console.log('your on to something')
+  // } else {
+  //   console.log('keep trying')
+  // }
+  // if (data.articles[description] === $('#search-input').val()) {
+  //   console.log('you got it')
+  // } else {
+  //   console.log('you dont got it')
+  // }
+  // const showArticlesByDesciptionHtml = showArticlesbyDescription({ articles: data.articles })
+  // $('.table').removeClass('hidden')
+  // $('#article-table').html(showArticlesByDesciptionHtml)
+}
+
 module.exports = {
   getLaundrySuccess,
   getLaundryFailure,
@@ -75,5 +116,6 @@ module.exports = {
   updateArticleSuccess,
   updateArticleFailure,
   getArticleIdSuccess,
-  getArticleIdFailure
+  getArticleIdFailure,
+  getArticlesByDescriptionSuccess
 }
