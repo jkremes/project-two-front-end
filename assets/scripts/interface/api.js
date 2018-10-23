@@ -49,9 +49,20 @@ const updateArticle = (id, description, size, color) => {
   })
 }
 
+const getArticleById = function (userEnteredId) {
+  return $.ajax({
+    url: config.apiUrl + '/articles/' + userEnteredId,
+    headers: {
+      Authorization: `Token token=${store.user.token}`
+    },
+    method: 'GET'
+  })
+}
+
 module.exports = {
   getLaundry,
   removeArticle,
   createNewArticle,
-  updateArticle
+  updateArticle,
+  getArticleById
 }

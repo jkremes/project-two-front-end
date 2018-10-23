@@ -1,4 +1,5 @@
 const showLaundry = require('../templates/laundry-list.handlebars')
+const showArticleId = require('../templates/article-id.handlebars')
 
 const getLaundrySuccess = (data) => {
   const showLaundryHtml = showLaundry({ articles: data.articles })
@@ -48,9 +49,20 @@ const updateArticleSuccess = function () {
 
 const updateArticleFailure = function () {
   $('#messages').fadeIn()
-  $('#messages').html('Something may have been wrong with the server, try again!')
+  $('#messages').html('You may not have permission to edit this or something may have been wrong with the server, try again!')
   $('#messages').css('color', 'red')
   $('#messages').fadeOut(2000)
+}
+
+const getArticleIdSuccess = (data) => {
+  const showArticleIdHtml = showArticleId({ article: data.article })
+  $('.table').removeClass('hidden')
+  $('#article-table').html(showArticleIdHtml)
+}
+
+const getArticleIdFailure = function () {
+  $('#messages').html('Something went wrong, please try again')
+  $('#messages').css('color', 'red')
 }
 
 module.exports = {
@@ -61,5 +73,7 @@ module.exports = {
   removeArticleSuccess,
   removeArticleFailure,
   updateArticleSuccess,
-  updateArticleFailure
+  updateArticleFailure,
+  getArticleIdSuccess,
+  getArticleIdFailure
 }

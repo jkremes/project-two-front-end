@@ -37,11 +37,29 @@
         <input type="submit" />
       </form>
 
-      <h3 id="messages"></h3>
+      <h3 id="messages">Welcome</h3>
       <br>
       <button id="sign-out-button" class="hidden">Sign Out!</button>
       <br>
       <button id="get-laundry" class="hidden">Show me the laundry!</button>
+      <br>
+      <div id="search" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <button type="button" class="btn btn-outline-secondary">Search by...</button>
+          <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="sr-only">Toggle Dropdown</span>
+          </button>
+          <div id="search-by" class="dropdown-menu">
+            <a id="search-by-id" class="dropdown-item" href="#show-by-id">Search by Id</a>
+            <a class="dropdown-item" href="#show-by-description">Search by Description</a>
+            <a class="dropdown-item" href="#show-by-size">Search by Size</a>
+            <a class="dropdown-item" href="#show-by-color">Search by Color</a>
+            <div role="separator" class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Separated link</a>
+          </div>
+        </div>
+        <input id="search-input" type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+      </div>
 
       <button id="create-laundry" class="hidden">Create laundry!</button>
       <form id="create-laundry-form" class="hidden">
