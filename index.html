@@ -20,10 +20,10 @@
     <!-- <button id="get-laundry" class="hidden">Show me the laundry!</button> -->
 
     <div class="dropdown">
-      <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class="btn btn-info dropdown-toggle float-left" type="button" id="dropdownActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         This laundry is pesky...
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+      <div class="dropdown-menu" aria-labelledby="dropdownActions">
         <button id="get-laundry" type="button" class="dropdown-item hidden">Show me the laundry!</button>
         <button id="create-laundry" type="button"class="dropdown-item hidden" data-toggle="modal" data-target="#createArticleModal">Create laundry!</button>
         <button id="clear-laundry" type="button" class="dropdown-item hidden">Get that laundry out of my face!</button>
@@ -32,15 +32,19 @@
     </div>
 
     <span id="display-feedback" class="navbar-text">Howdy Partner</span>
-    <button class="navbar-toggler btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-<span id="login-info">Sign-up/Login</span>
-</button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <button id="sign-up-button" type="button" class="btn float-right btn-outline-primary" data-toggle="modal" data-target="#signUpModal" >Sign-up!</button>
-      <button id="sign-in-button" type="button" class="btn float-right btn-outline-primary" data-toggle="modal" data-target="#signInModal">Sign-in!</button>
-      <button id="change-password-button" type="button" class="btn float-right hidden btn-outline-primary" data-toggle="modal" data-target="#changePasswordModal">Change Password!</button>
-      <button id="sign-out-button" class="btn float-right hidden btn-outline-primary">Sign Out!</button>
+    <!-- <button class="dropdown-toggle btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+<span id="login-info">Sign-up/Login</span> -->
+  <div class="dropdown">
+    <button class="btn btn-outline-secondary dropdown-toggle float-right" type="button" id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      In or Out?
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownLogin">
+      <button id="sign-up-button" type="button" class="dropdown-item btn float-right btn-outline-primary" data-toggle="modal" data-target="#signUpModal" >Sign-up!</button>
+      <button id="sign-in-button" type="button" class="dropdown-item btn btn float-right btn-outline-primary" data-toggle="modal" data-target="#signInModal">Sign-in!</button>
+      <button id="change-password-button" type="button" class="dropdown-item btn btn float-right hidden btn-outline-primary" data-toggle="modal" data-target="#changePasswordModal">Change Password!</button>
+      <button id="sign-out-button" class="dropdown-item btn btn float-right hidden btn-outline-primary">Sign Out!</button>
     </div>
+  </div>
   </nav>
 
   <h1>GA WDI 27 Laundry</h1>
