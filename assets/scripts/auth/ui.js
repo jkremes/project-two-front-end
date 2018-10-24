@@ -27,65 +27,61 @@ const signInSuccess = function (response) {
   $('#display-feedback').fadeOut(2000)
   $('#sign-in-form').trigger('reset')
   store.user = response.user
-  $('#login-info').html('User In/Out')
   $('#sign-out-button').removeClass('hidden')
-  // $('#change-password-form').removeClass('hidden')
   $('#get-laundry').removeClass('hidden')
   $('#create-laundry').removeClass('hidden')
   $('#clear-laundry').removeClass('hidden')
-  // $('#login').fadeOut(1500)
   $('#search').removeClass('hidden')
 }
 
 const signInFailure = function () {
   $('#signInModal').modal('hide')
-  $('#login').fadeIn()
-  $('#login').html('Something went wrong, please try again')
-  $('#login').css('color', 'red')
   $('#sign-in-form').trigger('reset')
-  $('#login').fadeOut(1500)
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('You might want to retry, something did not work.')
+  $('#display-feedback').css('color', 'red')
+  $('#display-feedback').fadeOut(2000)
 }
 
 const changePasswordSuccess = function () {
   $('#changePasswordModal').modal('hide')
-  $('#login').fadeIn()
-  $('#login').html('Change password success!')
-  $('#login').css('color', 'green')
-  $('#sign-up-form').trigger('reset')
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Password changed successfully.')
+  $('#display-feedback').css('color', 'green')
+  $('#display-feedback').fadeOut(2000)
   $('#change-password-form').trigger('reset')
-  $('#login').fadeOut(1500)
 }
 
 const changePasswordFailure = function () {
   $('#changePasswordModal').modal('hide')
-  $('#login').fadeIn()
-  $('#login').html('Somthing went wrong, please try again')
-  $('#login').css('color', 'red')
-  $('#sign-up-form').trigger('reset')
-  $('#login').fadeOut(1500)
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Not successful, try again.')
+  $('#display-feedback').css('color', 'red')
+  $('#display-feedback').fadeOut(2000)
+  $('#change-password-form').trigger('reset')
 }
 
 const signOutSuccess = function () {
-  $('#login').fadeIn()
-  $('#login').html('You are signed out!')
-  $('#login').css('color', 'green')
-  $('#sign-up-form').removeClass('hidden')
-  $('#sign-in-form').removeClass('hidden')
-  $('#change-password-form').addClass('hidden')
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Smell ya later!')
+  $('#display-feedback').css('color', 'green')
+  $('#display-feedback').fadeOut(2000)
+  $('#sign-up-button').removeClass('hidden')
+  $('#sign-in-button').removeClass('hidden')
+  $('#change-password-button').addClass('hidden')
+  $('#get-laundry').addClass('hidden')
+  $('#clear-laundry').addClass('hidden')
   $('#create-laundry').addClass('hidden')
-  $('#create-laundry-form').addClass('hidden')
   $('#sign-out-button').addClass('hidden')
   $('.table').addClass('hidden')
   $('#search').addClass('hidden')
-  $('#get-laundry').addClass('hidden')
-  $('#login').fadeOut(1500)
 }
 
 const signOutFailure = function () {
-  $('#login').fadeIn()
-  $('#login').html('Something went wrong, please try again')
-  $('#login').css('color', 'red')
-  $('#login').fadeOut(1500)
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Oops, try again!')
+  $('#display-feedback').css('color', 'red')
+  $('#display-feedback').fadeOut(2000)
 }
 module.exports = {
   signUpSuccess,
