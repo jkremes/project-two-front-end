@@ -13,6 +13,7 @@ $(() => {
   $('#change-password-form').on('submit', authEvents.onChangePassword)
   $('#sign-out-button').on('click', authEvents.onSignOut)
   $('#get-laundry').on('click', interfaceEvents.onGetLaundry)
+  $('#clear-laundry').on('click', interfaceEvents.onClearLaundry)
   $('.article-table').on('click', '.delete-article', interfaceEvents.onDeleteLaundry)
   $('.article-table').on('click', '.update-article', interfaceEvents.onUpdateArticle)
   $('#create-laundry').on('click', interfaceEvents.onCreateLaundry)
@@ -22,4 +23,7 @@ $(() => {
   $('#search-by-size').on('click', interfaceEvents.onShowBySize)
   $('#search-by-color').on('click', interfaceEvents.onShowByColor)
   $('#get-started-button').on('click', interfaceEvents.onGetStarted)
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
 })

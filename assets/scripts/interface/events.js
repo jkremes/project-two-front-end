@@ -9,6 +9,11 @@ const onGetLaundry = function (event) {
     .catch(ui.getLaundryFailure)
 }
 
+const onClearLaundry = function (event) {
+  event.preventDefault()
+  $('.table').addClass('hidden')
+}
+
 const onCreateLaundry = function (event) {
   event.preventDefault()
   $('#create-laundry-form').removeClass('hidden')
@@ -79,6 +84,7 @@ const onGetStarted = (event) => {
 
 module.exports = {
   onGetLaundry,
+  onClearLaundry,
   onDeleteLaundry,
   onCreateLaundry,
   onCreateNewArticle,

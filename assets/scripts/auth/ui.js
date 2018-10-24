@@ -2,20 +2,28 @@ const store = require('../store.js')
 
 const signUpSuccess = function () {
   $('#signUpModal').modal('hide')
-  $('#login').fadeIn()
-  $('#login').html('Sign up success!')
-  $('#login').css('color', 'green')
-  $('#sign-up-form').trigger('reset')
-  $('#login').fadeOut(2000)
+  // $('#login').fadeIn()
+  // $('#login').html('Sign up success!')
+  // $('#login').css('color', 'green')
+  // $('#sign-up-form').trigger('reset')
+  // $('#login').fadeOut(2000)
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('All set, now sign-in!')
+  $('#display-feedback').css('color', 'green')
+  $('#display-feedback').fadeOut(2000)
 }
 
 const signUpFailure = function () {
   $('#signUpModal').modal('hide')
-  $('#login').fadeIn()
-  $('#login').html('Somthing went wrong, please try again')
-  $('#login').css('color', 'red')
-  $('#sign-up-form').trigger('reset')
-  $('#login').fadeOut(1500)
+  // $('#login').fadeIn()
+  // $('#login').html('Somthing went wrong, please try again')
+  // $('#login').css('color', 'red')
+  // $('#sign-up-form').trigger('reset')
+  // $('#login').fadeOut(1500)
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Sorry, did not work. Try again!')
+  $('#display-feedback').css('color', 'red')
+  $('#display-feedback').fadeOut(2000)
 }
 
 const signInSuccess = function (response) {
@@ -39,6 +47,7 @@ const signInSuccess = function (response) {
   // $('#change-password-form').removeClass('hidden')
   $('#get-laundry').removeClass('hidden')
   $('#create-laundry').removeClass('hidden')
+  $('#clear-laundry').removeClass('hidden')
   // $('#login').fadeOut(1500)
   $('#search').removeClass('hidden')
 }
