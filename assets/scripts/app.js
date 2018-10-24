@@ -21,4 +21,5 @@ $(() => {
   $('#search-by-description').on('click', interfaceEvents.onShowByDescription)
   $('#search-by-size').on('click', interfaceEvents.onShowBySize)
   $('#search-by-color').on('click', interfaceEvents.onShowByColor)
+  $('#get-started-button').on('click', interfaceEvents.onGetStarted)
 })

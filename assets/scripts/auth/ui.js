@@ -24,12 +24,14 @@ const signInSuccess = function (response) {
   store.user = response.user
   $('#sign-up-form').addClass('hidden')
   $('#sign-in-form').addClass('hidden')
+  $('#sign-in-button').addClass('hidden')
   $('#sign-out-button').removeClass('hidden')
   $('#change-password-form').removeClass('hidden')
   $('#get-laundry').removeClass('hidden')
   $('#create-laundry').removeClass('hidden')
   $('#login').fadeOut(1500)
   $('#search').removeClass('hidden')
+  $('#login-info').html('User Action')
 }
 
 const signInFailure = function () {

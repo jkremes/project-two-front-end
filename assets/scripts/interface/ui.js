@@ -42,7 +42,7 @@ const removeArticleFailure = function () {
 }
 const updateArticleSuccess = function () {
   $('#messages').fadeIn()
-  $('#messages').html('You successfully added some clothing!')
+  $('#messages').html('You successfully edited that thang!')
   $('#messages').css('color', 'green')
   $('#messages').fadeOut(2000)
 }
@@ -58,6 +58,11 @@ const getArticleIdSuccess = (data) => {
   const showArticleIdHtml = showArticleId({ article: data.article })
   $('.table').removeClass('hidden')
   $('#article-table').html(showArticleIdHtml)
+  $('#search-input').val('')
+  $('#messages').fadeIn()
+  $('#messages').html('Your matched results are below, if blank, you do not own any of your search criteria!')
+  $('#messages').css('color', 'green')
+  $('#messages').fadeOut(5000)
 }
 
 const getArticleIdFailure = function () {

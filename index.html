@@ -1,76 +1,198 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>The Family Laundry!</h1>
-      <h2 id="login">Sign-Up or Login!</h2>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
 
-      <form id="sign-up-form">
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color: #a3f2fd">
+    <a class="navbar-brand" href="#">Clear the Laundry</a>
+    <span class="navbar-text">
+  Navbar text with an inline element
+  </span>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+<span id="login-info">Sign-up/Login</span>
+</button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <!-- <ul class="navbar-nav"> -->
+
+        <!-- <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li> -->
+
+        <!-- Button trigger modal -->
+        <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+          Launch demo modal
+        </button> -->
+
+        <!-- <span class="nav-item"> -->
+          <!-- <div class="btn-group float-right"> -->
+            <button type="button" class="btn float-right" data-toggle="modal" data-target="#signInModal" >Sign-up!</button>
+            <div class="dropdown-menu">
+              <!-- <form id="sign-up-form" class="px-4 py-3">
+                <legend>Sign-Up!</legend>
+                <input required placeholder="Enter Email" name="credentials[email]" type="email"/>
+                <input required placeholder="Enter Password" name="credentials[password]" type="password"/>
+                <input required placeholder="Confirm Password" name="credentials[password_confirmation]" type="password"/>
+                <input type="submit"/>
+              </form> -->
+            </div>
+          <!-- </div> -->
+        <!-- </span> -->
+
+        <span class="nav-item">
+          <div class="btn-group float-right">
+<!-- <a href="#" class="myButton">Sign-In</a> -->
+            <button id="sign-in-button" type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign-in!</button>
+            <div class="dropdown-menu">
+              <form id="sign-in-form">
+                <legend>Sign-In!</legend>
+                <input required placeholder="Enter email" name="credentials[email]" type="email"/>
+                <input required placeholder="Enter password" name="credentials[password]" type="password"/>
+                <input type="submit"/>
+                </form>
+            </div>
+          </div>
+        </span>
+      <!-- </ul> -->
+    </div>
+  </nav>
+
+  <h1>GA WDI 27 Laundry</h1>
+
+  <!-- Modal -->
+  <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign-up!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="sign-up-form" class="px-4 py-3">
+            <input required placeholder="Enter Email" name="credentials[email]" type="email"/>
+            <input required placeholder="Enter Password" name="credentials[password]" type="password"/>
+            <input required placeholder="Confirm Password" name="credentials[password_confirmation]" type="password"/>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="welcome-message" class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Hello, WDI-27!</h1>
+      <p class="lead">This is a simple application designed to keep track of everyone's laundry! You can view all of our laundry by clicking "Show me the Laundry!". You may also add your own articles of clothing and then update and delete whatever
+        belongs to you. Careful what you create, the whole class can see it!</p>
+      <hr class="my-4">
+      <p>Pay attention to any messages in order to successfully navigate the application you can submit feedback the the creater at the contact links at the bottom of the page</p>
+      <a id="get-started-button" class="btn btn-primary btn-lg" href="#" role="button">Let's get started!</a>
+    </div>
+  </div>
+
+
+  <h2 id="login">Sign-Up or Login!</h2>
+
+  <div>
+    <div id="search" class="input-group mb-3 hidden">
+      <div class="input-group-prepend">
+        <button type="button" class="btn btn-outline-secondary">Search by...</button>
+        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <span class="sr-only">Toggle Dropdown</span>
+    </button>
+        <div id="search-by" class="dropdown-menu">
+          <a id="search-by-id" class="dropdown-item" href="#show-by-id">Search by Id</a>
+          <a id="search-by-description" class="dropdown-item" href="#show-by-description">Search by Description</a>
+          <a id="search-by-size" class="dropdown-item" href="#show-by-size">Search by Size</a>
+          <a id="search-by-color" class="dropdown-item" href="#show-by-color">Search by Color</a>
+        </div>
+      </div>
+      <input id="search-input" type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+    </div>
+  </div>
+  <!-- <div class="btn-group">
+    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Sign-up!</button>
+    <div class="dropdown-menu">
+      <form id="sign-up-form" class="px-4 py-3">
         <legend>Sign-Up!</legend>
         <input required placeholder="Enter Email" name="credentials[email]" type="email"/>
         <input required placeholder="Enter Password" name="credentials[password]" type="password"/>
         <input required placeholder="Confirm Password" name="credentials[password_confirmation]" type="password"/>
         <input type="submit"/>
       </form>
+    </div>
+  </div> -->
 
-      <form id="sign-in-form">
-        <legend>Sign-In!</legend>
-        <input required placeholder="Enter email" name="credentials[email]" type="email"/>
-        <input required placeholder="Enter password" name="credentials[password]" type="password"/>
-        <input type="submit"/>
+  <!-- <form id="sign-up-form">
+    <legend>Sign-Up!</legend>
+    <input required placeholder="Enter Email" name="credentials[email]" type="email"/>
+    <input required placeholder="Enter Password" name="credentials[password]" type="password"/>
+    <input required placeholder="Confirm Password" name="credentials[password_confirmation]" type="password"/>
+    <input type="submit"/>
+      </form> -->
+
+  <!-- <form id="sign-in-form">
+      <legend>Sign-In!</legend>
+      <input required placeholder="Enter email" name="credentials[email]" type="email"/>
+      <input required placeholder="Enter password" name="credentials[password]" type="password"/>
+      <input type="submit"/>
+      </form> -->
+
+  <form id="change-password-form" class="hidden">
+    <legend>Change Password!</legend>
+    <input required placeholder="Enter Old Password" name="passwords[old]" type="password"/>
+    <input required placeholder="Enter New Password" name="passwords[new]" type="password"/>
+    <input type="submit" />
       </form>
 
-      <form id="change-password-form" class="hidden">
-        <legend>Change Password!</legend>
-        <input required placeholder="Enter Old Password" name="passwords[old]" type="password"/>
-        <input required placeholder="Enter New Password" name="passwords[new]" type="password"/>
-        <input type="submit" />
-      </form>
-
-      <h3 id="messages">Welcome</h3>
-      <br>
-      <button id="sign-out-button" class="hidden">Sign Out!</button>
-      <br>
-      <button id="get-laundry" class="hidden">Show me the laundry!</button>
-      <br>
-      <div id="search" class="input-group mb-3 hidden">
-        <div class="input-group-prepend">
-          <button type="button" class="btn btn-outline-secondary">Search by...</button>
-          <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <h3 id="messages">Welcome</h3>
+    <br>
+    <button id="sign-out-button" class="hidden">Sign Out!</button>
+    <br>
+    <button id="get-laundry" class="hidden">Show me the laundry!</button>
+    <br>
+    <!-- <div id="search" class="input-group mb-3 hidden">
+          <div class="input-group-prepend">
+            <button type="button" class="btn btn-outline-secondary">Search by...</button>
+            <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Toggle Dropdown</span>
           </button>
-          <div id="search-by" class="dropdown-menu">
-            <a id="search-by-id" class="dropdown-item" href="#show-by-id">Search by Id</a>
-            <a id="search-by-description" class="dropdown-item" href="#show-by-description">Search by Description</a>
-            <a id="search-by-size" class="dropdown-item" href="#show-by-size">Search by Size</a>
-            <a id="search-by-color" class="dropdown-item" href="#show-by-color">Search by Color</a>
-            <div role="separator" class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Separated link</a>
+            <div id="search-by" class="dropdown-menu">
+              <a id="search-by-id" class="dropdown-item" href="#show-by-id">Search by Id</a>
+              <a id="search-by-description" class="dropdown-item" href="#show-by-description">Search by Description</a>
+              <a id="search-by-size" class="dropdown-item" href="#show-by-size">Search by Size</a>
+              <a id="search-by-color" class="dropdown-item" href="#show-by-color">Search by Color</a>
+            </div>
           </div>
-        </div>
-        <input id="search-input" type="text" class="form-control" aria-label="Text input with segmented dropdown button">
-      </div>
+          <input id="search-input" type="text" class="form-control" aria-label="Text input with segmented dropdown button">
+      </div> -->
 
-      <button id="create-laundry" class="hidden">Create laundry!</button>
-      <form id="create-laundry-form" class="hidden">
-        <legend>Create Laundry!</legend>
-        <input required placeholder="Article Description" name="article[description]" type="text"/>
-        <input required placeholder="Article Size" name="article[size]" type="text"/>
-        <input required placeholder="Article Color" name="article[color]" type="text"/>
-        <input type="submit" />
+    <button id="create-laundry" class="hidden">Create laundry!</button>
+    <form id="create-laundry-form" class="hidden">
+      <legend>Create Laundry!</legend>
+      <input required placeholder="Article Description" name="article[description]" type="text"/>
+      <input required placeholder="Article Size" name="article[size]" type="text"/>
+      <input required placeholder="Article Color" name="article[color]" type="text"/>
+      <input type="submit" />
       </form>
 
-      <!-- <div id="user-display" class="user-display table table-hover"> -->
+      <div id="table">
         <table class="table table-hover hidden">
           <thead>
             <tr>
@@ -80,7 +202,7 @@
               <th scope="col">Color</th>
             </tr>
           </thead>
-          <tbody  id="article-table" class="article-table">
+          <tbody id="article-table" class="article-table">
             <!-- <tr>
               <th scope="row">1</th>
               <td>Mark</td>
@@ -88,8 +210,8 @@
               <td>@mdo</td>
             </tr> -->
           </tbody>
-        <!-- </table> -->
-        <!-- <form id="update-article-form" class="hidden">
+          <!-- </table> -->
+          <!-- <form id="update-article-form" class="hidden">
           <legend>Update Article!</legend>
           <input required placeholder="Article Description" name="article[description]" type="text"/>
           <input required placeholder="Article Size" name="article[size]" type="text"/>
@@ -97,8 +219,8 @@
           <input type="submit" />
         </form> -->
         </table>
-      <!-- </div> -->
+      </div>
 
-    </body>
+</body>
 
 </html>
