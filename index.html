@@ -16,9 +16,22 @@
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color: #00c770">
-    <a class="navbar-brand" href="#">Clear the Laundry</a>
+    <!-- <a class="navbar-brand" href="#">Clear the Laundry</a> -->
+    <!-- <button id="get-laundry" class="hidden">Show me the laundry!</button> -->
+
+    <div class="dropdown">
+      <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        This laundry is pesky...
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+        <button id="get-laundry" type="button" class="dropdown-item hidden">Show me the laundry!</button>
+        <button id="create-laundry" type="button"class="dropdown-item hidden" data-toggle="modal" data-target="#createArticleModal">Create laundry!</button>
+        <button class="dropdown-item" type="button">Something else here</button>
+      </div>
+    </div>
+
     <span id="display-feedback" class="navbar-text">Howdy Partner</span>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 <span id="login-info">Sign-up/Login</span>
 </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -45,15 +58,15 @@
           <form id="sign-up-form" class="px-4 py-3">
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
-              <input required placeholder="Enter Email" name="credentials[email]" type="email"/>
+              <input required class="form-control" placeholder="Enter Email" name="credentials[email]" type="email"/>
           </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input required placeholder="Enter Password" name="credentials[password]" type="password"/>
+                <input required class="form-control" placeholder="Enter Password" name="credentials[password]" type="password"/>
           </div>
                 <div class="form-group">
                   <label for="exampleInputPassword1">Password Confirmation</label>
-                  <input required placeholder="Confirm Password" name="credentials[password_confirmation]" type="password"/>
+                  <input required class="form-control" placeholder="Confirm Password" name="credentials[password_confirmation]" type="password"/>
           </div>
                   <div class="modal-footer">
                     <button id="close-sign-up" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -79,11 +92,11 @@
           <form id="sign-in-form" class="px-4 py-3">
             <div class="form-group">
               <label for="exampleInputEmail1">Email address</label>
-              <input required placeholder="Enter Email" name="credentials[email]" type="email"/>
+              <input required class="form-control" placeholder="Enter Email" name="credentials[email]" type="email"/>
           </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">Password</label>
-                <input required placeholder="Enter Password" name="credentials[password]" type="password"/>
+                <input required class="form-control" placeholder="Enter Password" name="credentials[password]" type="password"/>
           </div>
                 <div class="modal-footer">
                   <button id="close-sign-in" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -109,15 +122,56 @@
           <form id="change-password-form" class="px-4 py-3">
             <div class="form-group">
               <label for="exampleInputEmail1">Old Password</label>
-              <input required placeholder="Enter Old Password" name="passwords[old]" type="password"/>
+              <input required class="form-control" placeholder="Enter Old Password" name="passwords[old]" type="password"/>
           </div>
               <div class="form-group">
                 <label for="exampleInputPassword1">New Password</label>
-                <input required placeholder="Enter New Password" name="passwords[new]" type="password"/>
+                <input required class="form-control" placeholder="Enter New Password" name="passwords[new]" type="password"/>
           </div>
                 <div class="modal-footer">
                   <button id="close-change-password" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   <button id="submit-change-password" type="submit" class="btn btn-primary">Change it!</button>
+                </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Article Modal -->
+  <div class="modal fade hide" id="createArticleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create an Article!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- <form id="create-laundry-form" class="hidden">
+            <legend>Create Laundry!</legend>
+            <input required placeholder="Article Description" name="article[description]" type="text"/>
+            <input required placeholder="Article Size" name="article[size]" type="text"/>
+            <input required placeholder="Article Color" name="article[color]" type="text"/>
+            <input type="submit"/>
+            </form> -->
+          <form id="create-laundry-form" class="px-4 py-3 hidden" role="form">
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input required class="form-control" placeholder="Article Description" name="article[description]" type="text"/>
+          </div>
+              <div class="form-group">
+                <label for="size">Size</label>
+                <input required class="form-control" placeholder="Article Size" name="article[size]" type="text"/>
+          </div>
+              <div class="form-group">
+                <label for="color">Color</label>
+                <input required class="form-control" placeholder="Article Color" name="article[color]" type="text"/>
+          </div>
+                <div class="modal-footer">
+                  <button id="close-create-article" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button id="submit-create-article" type="submit" class="btn btn-primary">Create it!</button>
                 </div>
           </form>
         </div>
@@ -149,40 +203,22 @@
         <a id="search-by-color" class="dropdown-item" href="#show-by-color">Search by Color</a>
       </div>
     </div>
-    <input id="search-input" type="text" class="form-control" aria-label="Text input with dropdown button">
+    <input id="search-input" type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search only using the same text that matches your respective parameter">
   </div>
-
-  <!-- <div>
-    <div id="search" class="input-group mb-3 hidden">
-      <div class="input-group-prepend">
-        <button type="button" class="btn btn-outline-secondary">Search by...</button>
-        <button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <span class="sr-only">Toggle Dropdown</span>
-    </button>
-        <div id="search-by" class="dropdown-menu">
-          <a id="search-by-id" class="dropdown-item" href="#show-by-id">Search by Id</a>
-          <a id="search-by-description" class="dropdown-item" href="#show-by-description">Search by Description</a>
-          <a id="search-by-size" class="dropdown-item" href="#show-by-size">Search by Size</a>
-          <a id="search-by-color" class="dropdown-item" href="#show-by-color">Search by Color</a>
-        </div>
-      </div>
-      <input id="search-input" type="text" class="form-control" aria-label="Text input with segmented dropdown button">
-    </div>
-    </div> -->
 
     <h3 id="messages">Welcome</h3>
 
-    <button id="get-laundry" class="hidden">Show me the laundry!</button>
+    <!-- <button id="get-laundry" class="hidden">Show me the laundry!</button> -->
     <br>
 
-    <button id="create-laundry" class="hidden">Create laundry!</button>
-    <form id="create-laundry-form" class="hidden">
+    <!-- <button id="create-laundry" class="hidden">Create laundry!</button> -->
+    <!-- <form id="create-laundry-form" class="hidden">
       <legend>Create Laundry!</legend>
       <input required placeholder="Article Description" name="article[description]" type="text"/>
       <input required placeholder="Article Size" name="article[size]" type="text"/>
       <input required placeholder="Article Color" name="article[color]" type="text"/>
       <input type="submit"/>
-      </form>
+      </form> -->
 
       <div id="table">
         <table class="table table-hover hidden">
