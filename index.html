@@ -16,8 +16,6 @@
 <body>
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color: #00c770">
-    <!-- <a class="navbar-brand" href="#">Clear the Laundry</a> -->
-    <!-- <button id="get-laundry" class="hidden">Show me the laundry!</button> -->
 
     <div class="dropdown">
       <button class="btn btn-info dropdown-toggle float-left" type="button" id="dropdownActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -32,22 +30,20 @@
     </div>
 
     <span id="display-feedback" class="navbar-text">Howdy Partner</span>
-    <!-- <button class="dropdown-toggle btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-<span id="login-info">Sign-up/Login</span> -->
-  <div class="dropdown">
-    <button class="btn btn-outline-secondary dropdown-toggle float-right" type="button" id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      In or Out?
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownLogin">
-      <button id="sign-up-button" type="button" class="dropdown-item btn float-right btn-outline-primary" data-toggle="modal" data-target="#signUpModal" >Sign-up!</button>
-      <button id="sign-in-button" type="button" class="dropdown-item btn btn float-right btn-outline-primary" data-toggle="modal" data-target="#signInModal">Sign-in!</button>
-      <button id="change-password-button" type="button" class="dropdown-item btn btn float-right hidden btn-outline-primary" data-toggle="modal" data-target="#changePasswordModal">Change Password!</button>
-      <button id="sign-out-button" class="dropdown-item btn btn float-right hidden btn-outline-primary">Sign Out!</button>
-    </div>
-  </div>
-  </nav>
 
-  <h1>GA WDI 27 Laundry</h1>
+    <div class="dropdown">
+      <button class="btn btn-outline-secondary dropdown-toggle float-right" type="button" id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        In or Out?
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownLogin">
+        <button id="sign-up-button" type="button" class="dropdown-item btn float-right btn-outline-primary" data-toggle="modal" data-target="#signUpModal" >Sign-up!</button>
+        <button id="sign-in-button" type="button" class="dropdown-item btn btn float-right btn-outline-primary" data-toggle="modal" data-target="#signInModal">Sign-in!</button>
+        <button id="change-password-button" type="button" class="dropdown-item btn btn float-right hidden btn-outline-primary" data-toggle="modal" data-target="#changePasswordModal">Change Password!</button>
+        <button id="sign-out-button" class="dropdown-item btn btn float-right hidden btn-outline-primary">Sign Out!</button>
+      </div>
+    </div>
+
+  </nav>
 
   <!-- Sign-Up Modal -->
   <div class="modal fade hide" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -163,14 +159,14 @@
                 <label for="size">Size</label>
                 <input required class="form-control" placeholder="Think: s, m, l, etc." name="article[size]" type="text"/>
           </div>
-              <div class="form-group">
-                <label for="color">Color</label>
-                <input required class="form-control" placeholder="Think: red, white, blue, etc." name="article[color]" type="text"/>
+                <div class="form-group">
+                  <label for="color">Color</label>
+                  <input required class="form-control" placeholder="Think: red, white, blue, etc." name="article[color]" type="text"/>
           </div>
-                <div class="modal-footer">
-                  <button id="close-create-article" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                  <button id="submit-create-article" type="submit" class="btn btn-primary">Create it!</button>
-                </div>
+                  <div class="modal-footer">
+                    <button id="close-create-article" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="submit-create-article" type="submit" class="btn btn-primary">Create it!</button>
+                  </div>
           </form>
         </div>
       </div>
@@ -210,7 +206,7 @@
     </div>
   </div>
 
-  <div id="search" class="input-group mb-3 hidden container sticky-top">
+  <div id="search" class="input-group mb-3 hidden container">
     <div class="input-group-prepend">
       <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search By...</button>
       <div id="search-by" class="dropdown-menu">
@@ -223,23 +219,23 @@
     <input id="search-input" type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search only using the same text that matches your respective parameter">
   </div>
 
-      <div id="table">
-        <table class="table table-hover hidden">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Description</th>
-              <th scope="col">Size</th>
-              <th scope="col">Color</th>
-            </tr>
-          </thead>
-          <tbody id="article-table" class="article-table">
+    <div id="table">
+      <table class="table table-hover hidden">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Description</th>
+            <th scope="col">Size</th>
+            <th scope="col">Color</th>
+          </tr>
+        </thead>
+        <tbody id="article-table" class="article-table">
 
-          </tbody>
+        </tbody>
 
-        </table>
-      </div>
+      </table>
+    </div>
 
-    </body>
+  </body>
 
 </html>
