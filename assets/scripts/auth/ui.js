@@ -1,14 +1,16 @@
 const store = require('../store.js')
 
 const signUpSuccess = function () {
+  $('#signUpModal').modal('hide')
   $('#login').fadeIn()
   $('#login').html('Sign up success!')
   $('#login').css('color', 'green')
   $('#sign-up-form').trigger('reset')
-  $('#login').fadeOut(1500)
+  $('#login').fadeOut(2000)
 }
 
 const signUpFailure = function () {
+  $('#signUpModal').modal('hide')
   $('#login').fadeIn()
   $('#login').html('Somthing went wrong, please try again')
   $('#login').css('color', 'red')
@@ -17,6 +19,8 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (response) {
+  $('#signInModal').modal('hide')
+  $('#sign-up-button').addClass('hidden')
   $('#login').fadeIn()
   $('#login').html('Sign in success!')
   $('#login').css('color', 'green')
@@ -27,6 +31,7 @@ const signInSuccess = function (response) {
   $('#sign-in-button').addClass('hidden')
   $('#sign-out-button').removeClass('hidden')
   $('#change-password-form').removeClass('hidden')
+  $('#change-password-button').removeClass('hidden')
   $('#get-laundry').removeClass('hidden')
   $('#create-laundry').removeClass('hidden')
   $('#login').fadeOut(1500)
@@ -35,6 +40,7 @@ const signInSuccess = function (response) {
 }
 
 const signInFailure = function () {
+  $('#signInModal').modal('hide')
   $('#login').fadeIn()
   $('#login').html('Something went wrong, please try again')
   $('#login').css('color', 'red')
@@ -43,6 +49,7 @@ const signInFailure = function () {
 }
 
 const changePasswordSuccess = function () {
+  $('#changePasswordModal').modal('hide')
   $('#login').fadeIn()
   $('#login').html('Change password success!')
   $('#login').css('color', 'green')
@@ -52,6 +59,7 @@ const changePasswordSuccess = function () {
 }
 
 const changePasswordFailure = function () {
+  $('#changePasswordModal').modal('hide')
   $('#login').fadeIn()
   $('#login').html('Somthing went wrong, please try again')
   $('#login').css('color', 'red')
