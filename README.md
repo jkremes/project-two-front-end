@@ -62,3 +62,5 @@ Interaction:
 I made sure to start out coding very slow and methodically. This proved a very successful approach as I felt I was flying through the requirements. Eventually as this built out and things got more complicated I had to continue to remind myself to take steps back and think through my code line by line and get successes at each step in the process rather than trying to write out a whole function and seeing it not work and having no idea why. There is plenty more I could add here about the process, feel free to shoot me a message and I'll be happy to respond!
 
 Below is the link for my original wireframe and Entity Relationship Diagram (ERD). Eventually I would like to have these done in a more professional appearance and available on a public image directory. And will also host my user-stories built out.
+
+https://git.generalassemb.ly/ga-wdi-boston/full-stack-project/issues/1847
