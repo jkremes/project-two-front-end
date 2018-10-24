@@ -5,53 +5,60 @@ const getLaundrySuccess = (data) => {
   const showLaundryHtml = showLaundry({ articles: data.articles })
   $('.table').removeClass('hidden')
   $('#article-table').html(showLaundryHtml)
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Oh golly!')
+  $('#display-feedback').css('color', 'green')
+  $('#display-feedback').fadeOut(2000)
 }
 
 const getLaundryFailure = function () {
-  $('#user-display').html('Something went wrong, please try again')
-  $('#user-display').css('color', 'red')
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Oops, try again!')
+  $('#display-feedback').css('color', 'red')
+  $('#display-feedback').fadeOut(2000)
 }
 
 const createNewArticleSuccess = function () {
-  $('#messages').fadeIn()
-  $('#messages').html('You successfully added some clothing!')
-  $('#messages').css('color', 'green')
+  $('#createArticleModal').modal('hide')
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Great addition!')
+  $('#display-feedback').css('color', 'green')
+  $('#display-feedback').fadeOut(2000)
   $('#create-laundry-form').trigger('reset')
-  $('#messages').fadeOut(2000)
 }
 
 const createNewArticleFailure = function () {
-  $('#messages').fadeIn()
-  $('#messages').html('Something may have been wrong with the server, try again!')
-  $('#messages').css('color', 'red')
-  $('#messages').fadeOut(2000)
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Oops, try again!')
+  $('#display-feedback').css('color', 'red')
+  $('#display-feedback').fadeOut(2000)
 }
 
 const removeArticleSuccess = function () {
-  $('#messages').fadeIn()
-  $('#messages').html('You successfully deleted that thang!')
-  $('#messages').css('color', 'green')
-  $('#messages').fadeOut(2000)
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Probably for the best!')
+  $('#display-feedback').css('color', 'green')
+  $('#display-feedback').fadeOut(2000)
 }
 
 const removeArticleFailure = function () {
-  $('#messages').fadeIn()
-  $('#messages').html('You may not have permission to edit this or something may have been wrong with the server, try again!')
-  $('#messages').css('color', 'red')
-  $('#messages').fadeOut(2000)
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('You may not have permission to edit this, try another one!')
+  $('#display-feedback').css('color', 'red')
+  $('#display-feedback').fadeOut(2000)
 }
 const updateArticleSuccess = function () {
-  $('#messages').fadeIn()
-  $('#messages').html('You successfully edited that thang!')
-  $('#messages').css('color', 'green')
-  $('#messages').fadeOut(2000)
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('It worked, interesting change!')
+  $('#display-feedback').css('color', 'green')
+  $('#display-feedback').fadeOut(2000)
 }
 
 const updateArticleFailure = function () {
-  $('#messages').fadeIn()
-  $('#messages').html('You may not have permission to edit this or something may have been wrong with the server, try again!')
-  $('#messages').css('color', 'red')
-  $('#messages').fadeOut(2000)
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('You may not have permission to edit this, try another one!')
+  $('#display-feedback').css('color', 'red')
+  $('#display-feedback').fadeOut(2000)
 }
 
 const getArticleIdSuccess = (data) => {
@@ -59,15 +66,17 @@ const getArticleIdSuccess = (data) => {
   $('.table').removeClass('hidden')
   $('#article-table').html(showArticleIdHtml)
   $('#search-input').val('')
-  $('#messages').fadeIn()
-  $('#messages').html('Your matched results are below, if blank, you do not own any of your search criteria!')
-  $('#messages').css('color', 'green')
-  $('#messages').fadeOut(5000)
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Well... here it is!')
+  $('#display-feedback').css('color', 'green')
+  $('#display-feedback').fadeOut(2000)
 }
 
 const getArticleIdFailure = function () {
-  $('#messages').html('Something went wrong, please try again')
-  $('#messages').css('color', 'red')
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Hmmm...are you sure that exists?')
+  $('#display-feedback').css('color', 'red')
+  $('#display-feedback').fadeOut(2000)
 }
 
 const getArticlesByDescriptionSuccess = (data) => {
@@ -78,15 +87,17 @@ const getArticlesByDescriptionSuccess = (data) => {
   $('.table').removeClass('hidden')
   $('#article-table').html(showSearchedItems)
   $('#search-input').val('')
-  $('#messages').fadeIn()
-  $('#messages').html('Your matched results are below, if blank, you do not own any of your search criteria!')
-  $('#messages').css('color', 'green')
-  $('#messages').fadeOut(5000)
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Well...here they are (at least what exists based on your search criteria)!')
+  $('#display-feedback').css('color', 'green')
+  $('#display-feedback').fadeOut(2000)
 }
 
 const getArticlesByDescriptionFailure = function () {
-  $('#messages').html('Something went wrong, please try again')
-  $('#messages').css('color', 'red')
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Hmmm...are you sure they exist?')
+  $('#display-feedback').css('color', 'red')
+  $('#display-feedback').fadeOut(2000)
 }
 const getArticlesBySizeSuccess = (data) => {
   const checkDescriptionArray = data.articles.filter(function (article) {
@@ -96,15 +107,17 @@ const getArticlesBySizeSuccess = (data) => {
   $('.table').removeClass('hidden')
   $('#article-table').html(showSearchedItems)
   $('#search-input').val('')
-  $('#messages').fadeIn()
-  $('#messages').html('Your matched results are below, if blank, you do not own any of your search criteria!')
-  $('#messages').css('color', 'green')
-  $('#messages').fadeOut(5000)
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Well...here they are (at least what exists based on your search criteria)!')
+  $('#display-feedback').css('color', 'green')
+  $('#display-feedback').fadeOut(2000)
 }
 
 const getArticlesBySizeFailure = function () {
-  $('#messages').html('Something went wrong, please try again')
-  $('#messages').css('color', 'red')
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Hmmm...are you sure they exist?')
+  $('#display-feedback').css('color', 'red')
+  $('#display-feedback').fadeOut(2000)
 }
 const getArticlesByColorSuccess = (data) => {
   const checkDescriptionArray = data.articles.filter(function (article) {
@@ -114,15 +127,17 @@ const getArticlesByColorSuccess = (data) => {
   $('.table').removeClass('hidden')
   $('#article-table').html(showSearchedItems)
   $('#search-input').val('')
-  $('#messages').fadeIn()
-  $('#messages').html('Your matched results are below, if blank, you do not own any of your search criteria!')
-  $('#messages').css('color', 'green')
-  $('#messages').fadeOut(5000)
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Well...here they are (at least what exists based on your search criteria)!')
+  $('#display-feedback').css('color', 'green')
+  $('#display-feedback').fadeOut(2000)
 }
 
 const getArticlesByColorFailure = function () {
-  $('#messages').html('Something went wrong, please try again')
-  $('#messages').css('color', 'red')
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('Hmmm...are you sure they exist?')
+  $('#display-feedback').css('color', 'red')
+  $('#display-feedback').fadeOut(2000)
 }
 
 module.exports = {
