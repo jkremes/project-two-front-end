@@ -21,22 +21,26 @@ const signUpFailure = function () {
 const signInSuccess = function (response) {
   $('#signInModal').modal('hide')
   $('#sign-up-button').addClass('hidden')
-  $('#login').fadeIn()
-  $('#login').html('Sign in success!')
-  $('#login').css('color', 'green')
-  $('#sign-in-form').trigger('reset')
-  store.user = response.user
-  $('#sign-up-form').addClass('hidden')
-  $('#sign-in-form').addClass('hidden')
   $('#sign-in-button').addClass('hidden')
-  $('#sign-out-button').removeClass('hidden')
-  $('#change-password-form').removeClass('hidden')
   $('#change-password-button').removeClass('hidden')
+  $('#display-feedback').fadeIn()
+  $('#display-feedback').html('You have successfully signed in.')
+  $('#display-feedback').css('color', 'green')
+  $('#display-feedback').fadeOut(2000)
+  // $('#login').fadeIn()
+  // $('#login').html('Sign in success!')
+  // $('#login').css('color', 'green')
+  // $('#sign-in-form').trigger('reset')
+  store.user = response.user
+  $('#login-info').html('User Action')
+  // $('#sign-up-form').addClass('hidden')
+  // $('#sign-in-form').addClass('hidden')
+  $('#sign-out-button').removeClass('hidden')
+  // $('#change-password-form').removeClass('hidden')
   $('#get-laundry').removeClass('hidden')
   $('#create-laundry').removeClass('hidden')
-  $('#login').fadeOut(1500)
+  // $('#login').fadeOut(1500)
   $('#search').removeClass('hidden')
-  $('#login-info').html('User Action')
 }
 
 const signInFailure = function () {
