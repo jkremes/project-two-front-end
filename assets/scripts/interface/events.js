@@ -9,6 +9,12 @@ const onGetLaundry = function (event) {
     .catch(ui.getLaundryFailure)
 }
 
+const onGetLaundryAfterAction = function () {
+  api.getLaundry()
+    .then(ui.getLaundrySuccess)
+    .catch(ui.getLaundryFailure)
+}
+
 const onClearLaundry = function (event) {
   event.preventDefault()
   $('.table').addClass('hidden')
@@ -23,7 +29,10 @@ const onCreateNewArticle = function (event) {
   event.preventDefault()
   const creationData = getFormFields(event.target)
   api.createNewArticle(creationData)
-    .then(ui.createNewArticleSuccess)
+    .then(() => {
+      ui.createNewArticleSuccess()
+      onGetLaundryAfterAction()
+    })
     .catch(ui.createNewArticleFailure)
 }
 
@@ -33,7 +42,10 @@ const onDeleteLaundry = (event) => {
   console.log(articleId)
   if (confirm('Are you sure you no longer want this item?')) {
     api.removeArticle(articleId)
-      .then(ui.removeArticleSuccess)
+      .then(() => {
+        ui.removeArticleSuccess()
+        onGetLaundryAfterAction()
+      })
       .catch(ui.removeArticleFailure)
   }
 }
@@ -46,7 +58,10 @@ const onUpdateArticle = (event) => {
     const size = $('#articleSize').val().trim()
     const color = $('#articleColor').val().trim()
     api.updateArticle(articleId, description, size, color)
-      .then(ui.updateArticleSuccess)
+      .then(() => {
+        ui.updateArticleSuccess()
+        onGetLaundryAfterAction()
+      })
       .catch(ui.updateArticleFailure)
   }
   $('#form-submit').on('click', updateArticle)

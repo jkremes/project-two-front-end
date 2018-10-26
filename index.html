@@ -15,10 +15,10 @@
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" style="background-color: #00c770">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
 
     <div class="dropdown">
-      <button class="btn btn-info dropdown-toggle float-left" type="button" id="dropdownActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class="btn btn-info dropdown-toggle ml-1 d-flex flex-row justify-content-start" type="button" id="dropdownActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         This laundry is pesky...
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownActions">
@@ -29,10 +29,10 @@
       </div>
     </div>
 
-    <span id="display-feedback" class="navbar-text">Howdy Partner</span>
+    <div id="display-feedback" class="navbar-text display-messages mx-auto justify-content-center">Howdy Partner</div>
 
     <div class="dropdown">
-      <button class="btn btn-outline-secondary dropdown-toggle float-right" type="button" id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <button class="btn btn-outline-secondary dropdown-toggle mr-1 d-flex flex-row-reverse justify-content-end ml-auto p-2" type="button" id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         In or Out?
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownLogin">
@@ -194,6 +194,48 @@
       </div>
     </div>
   </div>
+
+  <!-- Update Article Modal -->
+  <div class="modal fade hide" id="update-article-id-form" tabindex="-1" role="dialog"
+       aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div id="submit-form" class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">
+                    Alter Article!
+                </h4>
+                  <button type="button" class="close" data-dismiss="modal">
+                         <span aria-hidden="true">&times;</span>
+                         <span class="sr-only">Close</span>
+                  </button>
+              </div>
+
+              <!-- Modal Body -->
+              <div class="modal-body">
+                  <form id="update-article-form" class="update-article-form" role="form" method="patch">
+                    <div class="form-group">
+                        <input id="articleDescription" required type="text" class="form-control" name="article[description]" placeholder="Description"/>
+                    </div>
+                    <div class="form-group">
+                        <input id="articleSize" required type="text" class="form-control" name="article[size]" placeholder="Size"/>
+                    </div>
+                    <div class="form-group">
+                          <input id="articleColor" required type="text" class="form-control" name="article[color]" placeholder="Color"/>
+                    </div>
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button id="form-submit" type="submit" class="btn btn-primary" data-dismiss="modal" >Save changes</button>
+                    </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
   <br>
   <br>
   <div id="welcome-message" class="jumbotron jumbotron-fluid">
@@ -239,9 +281,9 @@
     </div>
 
 <footer class="footer">
-  <p>Posted by: Ya Boi</p>
-  <p>Contact information: <a href="mailto:pleasedontemailme@seriously.com">
-  pleasedontemailme@seriously.com</a>.</p>
+  <p>Posted by: Joshua K</p>
+  <p>Contact information: <a href="mailto:exampleemailaddress@hereitis.com">
+  exampleEmail@example.com</a>.</p>
 </footer>
 </body>
 

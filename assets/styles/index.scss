@@ -5,7 +5,16 @@
 }
 
 .footer {
-  background-color: #ace7f0;
+  background-color: #48d1cc;
   color: white;
   text-align: center;
+  position: fixed;
+  height: 75px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar {
+  background-color: #48d1cc
 }
