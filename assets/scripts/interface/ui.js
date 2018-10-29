@@ -1,6 +1,5 @@
 const showLaundry = require('../templates/laundry-list.handlebars')
 const showArticleId = require('../templates/article-id.handlebars')
-// const interfaceEvents = require('./events.js')
 
 const getLaundrySuccess = (data) => {
   const showLaundryHtml = showLaundry({ articles: data.articles })

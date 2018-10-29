@@ -39,7 +39,6 @@ const onCreateNewArticle = function (event) {
 const onDeleteLaundry = (event) => {
   event.preventDefault()
   const articleId = $(event.target).closest('tr').data('id')
-  console.log(articleId)
   if (confirm('Are you sure you no longer want this item?')) {
     api.removeArticle(articleId)
       .then(() => {
