@@ -6,6 +6,7 @@ const signUpSuccess = function () {
   $('#display-feedback').html('All set, now sign-in!')
   $('#display-feedback').css('color', 'green')
   $('#display-feedback').fadeToggle()
+  $('#sign-up-form').trigger('reset')
 }
 
 const signUpFailure = function () {
