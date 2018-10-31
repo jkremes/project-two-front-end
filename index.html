@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>WDI-27 Laundry</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+
+    <div class="dropdown">
+      <button class="btn btn-info dropdown-toggle ml-1 d-flex flex-row justify-content-start" type="button" id="dropdownActions" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        This laundry is pesky...
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownActions">
+        <button id="get-laundry" type="button" class="dropdown-item hidden">Show me the laundry!</button>
+        <button id="create-laundry" type="button"class="dropdown-item hidden" data-toggle="modal" data-target="#createArticleModal">Create laundry!</button>
+        <button id="clear-laundry" type="button" class="dropdown-item hidden">Get that laundry out of my face!</button>
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#helpModal">Help!</button>
+      </div>
+    </div>
+
+    <div id="display-feedback" class="navbar-text display-messages mx-auto justify-content-center">Howdy Partner</div>
+
+    <div class="dropdown">
+      <button class="btn btn-outline-secondary dropdown-toggle mr-1 d-flex flex-row-reverse justify-content-end ml-auto p-2" type="button" id="dropdownLogin" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        In or Out?
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownLogin">
+        <button id="sign-up-button" type="button" class="dropdown-item btn float-right btn-outline-primary" data-toggle="modal" data-target="#signUpModal" >Sign-up!</button>
+        <button id="sign-in-button" type="button" class="dropdown-item btn btn float-right btn-outline-primary" data-toggle="modal" data-target="#signInModal">Sign-in!</button>
+        <button id="change-password-button" type="button" class="dropdown-item btn btn float-right hidden btn-outline-primary" data-toggle="modal" data-target="#changePasswordModal">Change Password!</button>
+        <button id="sign-out-button" class="dropdown-item btn btn float-right hidden btn-outline-primary">Sign Out!</button>
+      </div>
+    </div>
+
+  </nav>
+
+  <!-- Sign-Up Modal -->
+  <div class="modal fade hide" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign-up!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="sign-up-form" class="px-4 py-3">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input required class="form-control" placeholder="Enter Email" name="credentials[email]" type="email"/>
+          </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input required class="form-control" placeholder="Enter Password" name="credentials[password]" type="password"/>
+          </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password Confirmation</label>
+                  <input required class="form-control" placeholder="Confirm Password" name="credentials[password_confirmation]" type="password"/>
+          </div>
+                  <div class="modal-footer">
+                    <button id="close-sign-up" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="submit-sign-up" type="submit" class="btn btn-primary">Save Changes</button>
+                  </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Sign-In Modal -->
+  <div class="modal fade hide" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sign-in!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="sign-in-form" class="px-4 py-3">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input required class="form-control" placeholder="Enter Email" name="credentials[email]" type="email"/>
+          </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input required class="form-control" placeholder="Enter Password" name="credentials[password]" type="password"/>
+          </div>
+                <div class="modal-footer">
+                  <button id="close-sign-in" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button id="submit-sign-in" type="submit" class="btn btn-primary">Sign-In</button>
+                </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Change Password Modal -->
+  <div class="modal fade hide" id="changePasswordModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Change Password!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="change-password-form" class="px-4 py-3">
+            <div class="form-group">
+              <label for="exampleInputEmail1">Old Password</label>
+              <input required class="form-control" placeholder="Enter Old Password" name="passwords[old]" type="password"/>
+          </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">New Password</label>
+                <input required class="form-control" placeholder="Enter New Password" name="passwords[new]" type="password"/>
+          </div>
+                <div class="modal-footer">
+                  <button id="close-change-password" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button id="submit-change-password" type="submit" class="btn btn-primary">Change it!</button>
+                </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Create Article Modal -->
+  <div class="modal fade hide" id="createArticleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Create an Article!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="create-laundry-form" class="px-4 py-3 hidden" role="form">
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input required class="form-control" placeholder="Think: shirt, shorts, socks, etc." name="article[description]" type="text"/>
+          </div>
+              <div class="form-group">
+                <label for="size">Size</label>
+                <input required class="form-control" placeholder="Think: s, m, l, etc." name="article[size]" type="text"/>
+          </div>
+                <div class="form-group">
+                  <label for="color">Color</label>
+                  <input required class="form-control" placeholder="Think: red, white, blue, etc." name="article[color]" type="text"/>
+          </div>
+                  <div class="modal-footer">
+                    <button id="close-create-article" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="submit-create-article" type="submit" class="btn btn-primary">Create it!</button>
+                  </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Help Modal -->
+  <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">"Whatchya need?"</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          -If you are having trouble interacting with the site, try signing in.
+          -If you are having trouble creating an account, try a new email and password.
+          -If you would like to change your password, you must be signed-in and then click the "In or Out?" button.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Thanks, I'm good now!</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Update Article Modal -->
+  <div class="modal fade hide" id="update-article-id-form" tabindex="-1" role="dialog"
+       aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+          <div id="submit-form" class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">
+                    Alter Article!
+                </h4>
+                  <button type="button" class="close" data-dismiss="modal">
+                         <span aria-hidden="true">&times;</span>
+                         <span class="sr-only">Close</span>
+                  </button>
+              </div>
+
+              <!-- Modal Body -->
+              <div class="modal-body">
+                  <form id="update-article-form" class="update-article-form" role="form" method="patch">
+                    <div class="form-group">
+                        <input id="articleDescription" required type="text" class="form-control" name="article[description]" placeholder="Description"/>
+                    </div>
+                    <div class="form-group">
+                        <input id="articleSize" required type="text" class="form-control" name="article[size]" placeholder="Size"/>
+                    </div>
+                    <div class="form-group">
+                          <input id="articleColor" required type="text" class="form-control" name="article[color]" placeholder="Color"/>
+                    </div>
+                    <!-- Modal Footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button id="form-submit" type="submit" class="btn btn-primary" data-dismiss="modal" >Save changes</button>
+                    </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <br>
+  <br>
+  <div id="welcome-message" class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Hello, WDI-27!</h1>
+      <p class="lead">This is a simple application designed to keep track of your laundry! You can view all of our laundry by clicking "Show me the Laundry!". You may also add your own articles of clothing and then update and delete whatever
+        belongs to you.</p>
+      <hr class="my-4">
+      <p>Pay attention to any messages in order to successfully navigate the application you can submit feedback to the creater at the contact links on the bottom of the page. (hint: There's also a help button in the top left button)</p>
+      <a id="get-started-button" class="btn btn-primary btn-lg" href="#" role="button">Let's get started!</a>
+    </div>
+  </div>
+  <br>
+  <br>
+  <div id="search" class="input-group mb-3 hidden container sticky-top">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Search By...</button>
+      <div id="search-by" class="dropdown-menu">
+        <a id="search-by-id" class="dropdown-item" href="#show-by-id">Search by Id</a>
+        <a id="search-by-description" class="dropdown-item" href="#show-by-description">Search by Description</a>
+        <a id="search-by-size" class="dropdown-item" href="#show-by-size">Search by Size</a>
+        <a id="search-by-color" class="dropdown-item" href="#show-by-color">Search by Color</a>
+      </div>
+    </div>
+    <input id="search-input" type="text" class="form-control" aria-label="Text input with dropdown button" placeholder="Search only using the same text that matches your respective parameter">
+  </div>
+
+    <div id="table" class="container">
+      <table class="table table-hover hidden table-striped table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Description</th>
+            <th scope="col">Size</th>
+            <th scope="col">Color</th>
+          </tr>
+        </thead>
+        <tbody id="article-table" class="article-table">
+        </tbody>
+      </table>
+    </div>
+    <br>
+    <br>
+    <br>
+
+</body>
+
+<footer class="footer">
+  <p>Posted by: Joshua K</p>
+  <p>Contact information: <a href="mailto:exampleemailaddress@hereitis.com">
+  exampleEmail@example.com</a>.</p>
+</footer>
+
+</html>
