@@ -11,6 +11,16 @@ const getLaundrySuccess = (data) => {
   $('#display-feedback').fadeToggle()
 }
 
+const getLaundryOtherSuccess = (data) => {
+  const showLaundryHtml = showLaundry({ articles: data.articles })
+  $('.table').removeClass('hidden')
+  $('#article-table').html(showLaundryHtml)
+  // $('#display-feedback').fadeToggle()
+  // $('#display-feedback').html('Oh golly!')
+  // $('#display-feedback').css('color', 'green')
+  // $('#display-feedback').fadeToggle()
+}
+
 const getLaundryFailure = function () {
   $('#display-feedback').fadeToggle()
   $('#display-feedback').html('Oops, try again!')
@@ -161,5 +171,6 @@ module.exports = {
   getArticlesBySizeSuccess,
   getArticlesBySizeFailure,
   getArticlesByColorSuccess,
-  getArticlesByColorFailure
+  getArticlesByColorFailure,
+  getLaundryOtherSuccess
 }

@@ -11,13 +11,17 @@ const onGetLaundry = function (event) {
 
 const onGetLaundryAfterAction = function () {
   api.getLaundry()
-    .then(ui.getLaundrySuccess)
+    .then(ui.getLaundryOtherSuccess)
     .catch(ui.getLaundryFailure)
 }
 
 const onClearLaundry = function (event) {
   event.preventDefault()
   $('.table').addClass('hidden')
+  $('#display-feedback').fadeToggle()
+  $('#display-feedback').html('I hid them for you!')
+  $('#display-feedback').css('color', 'green')
+  $('#display-feedback').fadeToggle()
 }
 
 const onCreateLaundry = function (event) {
